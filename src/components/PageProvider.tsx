@@ -1,6 +1,6 @@
 import PageContext from '@/contexts/PageContext'
 import type { FC } from 'react'
-import type { PageProps } from '@/types/PageProps'
+import type { PageContextProps } from '@/contexts/PageContext'
 
 const PageProvider: FC<PageProviderProps> = ({ lang, page, children }) => (
   <PageContext.Provider
@@ -13,7 +13,7 @@ const PageProvider: FC<PageProviderProps> = ({ lang, page, children }) => (
   </PageContext.Provider>
 )
 
-type PageProviderProps = PageProps & {
+type PageProviderProps = PageContextProps & {
   children: JSX.Element | JSX.Element[]
 }
 

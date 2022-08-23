@@ -1,7 +1,7 @@
 import type { FC } from 'react'
 
 const Footer: FC<FooterProps> = () => (
-  <footer>
+  <footer className='relative z-0'>
     <div></div>
   </footer>
 )
