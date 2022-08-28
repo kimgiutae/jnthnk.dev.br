@@ -11,7 +11,11 @@ const Button: FC<ButtonProps> = ({
   if (tag === 'a') {
     return (
       <Link passHref href={href}>
-        <a className={`pointer-events-auto block ${className}`}>{children}</a>
+        <a
+          className={`pointer-events-auto inline-flex rounded bg-black py-2 px-4 font-semibold text-white ${className}`}
+        >
+          {children}
+        </a>
       </Link>
     )
   }
@@ -27,7 +31,7 @@ type ButtonProps = {
   className?: string
 } & (
   | {
-      tag: 'a'
+      tag?: 'a'
       href: string
       type?: undefined
     }

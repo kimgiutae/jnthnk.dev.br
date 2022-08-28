@@ -11,11 +11,18 @@ module.exports = {
       '2xl': '1400px'
     },
     colors: {
+      gray: '#757575',
       black: '#000',
-      white: '#FFF',
+      white: '#fff',
+      primary: '#263238',
+      secondary: '#ffa000',
       transparent: 'transparent'
     },
-    extend: {}
+    extend: {
+      fontFamily: {
+        poppins: "'Poppins', sans-serif"
+      }
+    }
   },
   plugins: []
 }

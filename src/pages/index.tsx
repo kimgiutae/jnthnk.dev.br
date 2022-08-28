@@ -1,13 +1,15 @@
 import Layout from '@/components/Layout'
+import Welcome from '@/components/Welcome'
+import Showcase from '@/components/Showcase'
 import getHomePageProps from '@/utils/getHomePageProps'
 import type { FC } from 'react'
 import type { HomePageProps } from '@/types/HomePageProps'
 import type { GetStaticProps } from 'next'
-import Welcome from '@/components/Welcome'
 
-const HomePage: FC<HomePageProps> = ({ head, lang, page, header, welcome }) => (
-  <Layout head={head} lang={lang} page={page} header={header}>
+const HomePage: FC<HomePageProps> = ({ head, lang, page, footer, header, welcome, showcase }) => (
+  <Layout head={head} lang={lang} page={page} footer={footer} header={header}>
     <Welcome {...welcome} />
+    <Showcase {...showcase} />
   </Layout>
 )
 

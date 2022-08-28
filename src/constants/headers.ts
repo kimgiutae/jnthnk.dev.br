@@ -15,6 +15,10 @@ const headers: Headers = {
       {
         href: '/projetos',
         label: 'Projetos'
+      },
+      {
+        href: '/blog',
+        label: 'Blog'
       }
     ]
   },

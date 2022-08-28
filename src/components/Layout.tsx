@@ -5,12 +5,12 @@ import type { FC } from 'react'
 import type { PageProps } from '@/types/PageProps'
 import Head from '@/components/Head'
 
-const Layout: FC<LayoutProps> = ({ head, lang, page, header, children }) => (
+const Layout: FC<LayoutProps> = ({ head, lang, page, footer, header, children }) => (
   <PageProvider lang={lang} page={page}>
     <Head {...head} />
     <Header {...header} />
     <main className='relative z-10'>{children}</main>
-    <Footer />
+    <Footer {...footer} />
   </PageProvider>
 )
 

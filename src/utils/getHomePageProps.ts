@@ -1,31 +1,32 @@
-import heads from '@/constants/heads'
-import headers from '@/constants/headers'
-import welcomes from '@/constants/welcomes'
+import footers from '@/constants/footers'
+import translations from '@/constants/translations'
+import getHTMLFromMarkdown from '@/utils/getHTMLFromMarkdown'
 import type { HomePageProps } from '@/types/HomePageProps'
 
 const getHomePageProps: GetHomePageProps = (locale) => {
   const lang = locale as HomePageProps['lang']
   const page = 'home'
-  const head = heads[lang][page]
-  const header = headers[lang]
-  const welcome = welcomes[lang]
+  const footer = footers[lang]
+
+  const translation = translations[lang]
+  const { heads, header, latest, welcome, showcase } = translation
+  const head = heads[page]
+
+  welcome.title = getHTMLFromMarkdown(welcome.title, true)
+  welcome.description = getHTMLFromMarkdown(welcome.description, true)
 
   const props: HomePageProps = {
     head,
     lang,
     page,
+    footer,
     header,
-    welcome
+    latest,
+    welcome,
+    showcase
   }
 
   return props
-}
-
-type I18ns = {
-  [key in HomePageProps['lang']]: {
-    head: HomePageProps['head']
-    welcome: HomePageProps['welcome']
-  }
 }
 
 type GetHomePageProps = (locale: string) => HomePageProps
