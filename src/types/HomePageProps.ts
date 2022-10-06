@@ -1,12 +1,12 @@
 import type { PageProps } from '@/types/PageProps'
+import type { StackProps } from '@/components/Stack'
 import type { LatestProps } from '@/components/Latest'
 import type { WelcomeProps } from '@/components/Welcome'
-import type { ShowcaseProps } from '@/components/Showcase'
 
 type HomePageProps = PageProps & {
+  stack: StackProps
   latest: LatestProps
   welcome: WelcomeProps
-  showcase: ShowcaseProps
 }
 
 export type { HomePageProps }

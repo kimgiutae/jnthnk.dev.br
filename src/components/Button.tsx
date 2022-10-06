@@ -4,15 +4,23 @@ import type { FC } from 'react'
 const Button: FC<ButtonProps> = ({
   tag = 'a',
   href,
+  mode = 'default',
   type = 'button',
   children,
-  className = ''
+  className: provClassName = ''
 }) => {
+  const className = `pointer-events-auto inline-flex rounded bg-black py-2 px-4 font-semibold text-white transition-colors ${provClassName} ${
+    mode === 'transparent' ? 'bg-transparent text-black hover:bg-gray' : 'bg-secondary'
+  }`
   if (tag === 'a') {
     return (
       <Link passHref href={href}>
         <a
-          className={`pointer-events-auto inline-flex rounded bg-black py-2 px-4 font-semibold text-white ${className}`}
+          className={`pointer-events-auto inline-flex rounded bg-black py-2 px-4 font-semibold text-white transition-colors ${provClassName} ${
+            mode === 'transparent'
+              ? 'bg-transparent text-black hover:bg-gray'
+              : 'bg-secondary shadow-inner'
+          }`}
         >
           {children}
         </a>
@@ -20,13 +28,14 @@ const Button: FC<ButtonProps> = ({
     )
   }
   return (
-    <button className={`pointer-events-auto block ${className}`} type={type}>
+    <button type={type} className={className}>
       {children}
     </button>
   )
 }
 
 type ButtonProps = {
+  mode?: 'default' | 'transparent'
   children?: string | JSX.Element | (string | JSX.Element)[]
   className?: string
 } & (

@@ -1,4 +1,4 @@
-import { useId } from 'react'
+import { useEffect, useId } from 'react'
 import NextLink from 'next/link'
 import Container from '@/components/Container'
 import type { FC } from 'react'
@@ -6,8 +6,9 @@ import type { Link } from '@/types/Link'
 
 const Header: FC<HeaderProps> = ({ links }) => {
   const linkId = useId()
+  useEffect(() => {}, [])
   return (
-    <header className='relative z-20 overflow-hidden'>
+    <header className='fixed inset-0 bottom-auto z-20 overflow-hidden bg-white'>
       <Container tag='nav' className='!py-8 md:flex md:!py-6 xl:!py-4'>
         <ul className='-m-2 mr-auto flex flex-wrap leading-4'>
           {links.map(({ href, label }) => (

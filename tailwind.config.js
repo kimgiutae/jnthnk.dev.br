@@ -14,7 +14,7 @@ module.exports = {
       gray: '#757575',
       black: '#000',
       white: '#fff',
-      primary: '#263238',
+      primary: '#0277BD',
       secondary: '#ffa000',
       transparent: 'transparent'
     },
@@ -24,5 +24,5 @@ module.exports = {
       }
     }
   },
-  plugins: []
+  plugins: [require('@tailwindcss/typography')]
 }

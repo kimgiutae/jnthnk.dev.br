@@ -1,4 +1,3 @@
-import footers from '@/constants/footers'
 import translations from '@/constants/translations'
 import getHTMLFromMarkdown from '@/utils/getHTMLFromMarkdown'
 import type { HomePageProps } from '@/types/HomePageProps'
@@ -6,12 +5,13 @@ import type { HomePageProps } from '@/types/HomePageProps'
 const getHomePageProps: GetHomePageProps = (locale) => {
   const lang = locale as HomePageProps['lang']
   const page = 'home'
-  const footer = footers[lang]
 
   const translation = translations[lang]
-  const { heads, header, latest, welcome, showcase } = translation
+  const { heads, stack, footer, header, latest, welcome } = translation
   const head = heads[page]
 
+  stack.description = getHTMLFromMarkdown(stack.description, true)
+  footer.description = getHTMLFromMarkdown(footer.description, true)
   welcome.title = getHTMLFromMarkdown(welcome.title, true)
   welcome.description = getHTMLFromMarkdown(welcome.description, true)
 
@@ -19,11 +19,14 @@ const getHomePageProps: GetHomePageProps = (locale) => {
     head,
     lang,
     page,
-    footer,
+    stack,
+    footer: {
+      ...footer,
+      links: header.links
+    },
     header,
     latest,
-    welcome,
-    showcase
+    welcome
   }
 
   return props
